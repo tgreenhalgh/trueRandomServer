@@ -11,8 +11,9 @@
       {{range .}}
       <li>{{.}}</li>
       {{ end }}
-    {{range $index, $element := .}}
-    <li>{{$index}} - {{$element}}</li>
+    {{/* {{range $index, $element := .}} */}}
+    {{range $key, $val := .}}
+    <li>{{$key}} - {{$val}}</li>
     {{end}}
     </ul>
   </body>
