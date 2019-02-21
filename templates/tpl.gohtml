@@ -8,7 +8,9 @@
   </head>
   <body>
     <ul>
+      {{range .}}
       <li>{{.Name}} - {{.Motto}}</li>
+      {{end}}
     </ul>
   </body>
 </html>
