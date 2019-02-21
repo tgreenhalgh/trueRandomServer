@@ -57,6 +57,7 @@ func main() {
 	sages := []sage{b, g, m}
 	cars := []car{f, c}
 
+	// anonymous struct (i.e. not declared type blah struct{})
 	data := struct {
 		Wisdom    []sage
 		Transport []car
