@@ -9,6 +9,11 @@ import (
 // pacage level scope
 var tpl *template.Template
 
+type sage struct {
+	Name  string
+	Motto string
+}
+
 func init() {
 	// Must does error checking, ParseGlob gets all the matching files
 	tpl = template.Must(template.ParseGlob("templates/*"))
@@ -16,13 +21,9 @@ func init() {
 
 func main() {
 
-	// sages := []string{"Ghandi", "MLK", "Buddha", "Jesus", "Muhammad"}
-	sages := map[string]string{
-		"India":    "Gandhi",
-		"America":  "MLK",
-		"Meditate": "Buddha",
-		"Love":     "Jesus",
-		"Prophet":  "Muhammad",
+	buddha := sage{
+		Name:  "Buddha",
+		Motto: "The belief of no beliefs",
 	}
 
 	nf, err := os.Create("index.html")
@@ -31,7 +32,7 @@ func main() {
 	}
 	defer nf.Close()
 
-	err = tpl.ExecuteTemplate(nf, "tpl.gohtml", sages)
+	err = tpl.ExecuteTemplate(nf, "tpl.gohtml", buddha)
 	if err != nil {
 		log.Fatalln(err)
 	}

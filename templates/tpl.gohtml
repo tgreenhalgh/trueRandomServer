@@ -8,13 +8,7 @@
   </head>
   <body>
     <ul>
-      {{range .}}
-      <li>{{.}}</li>
-      {{ end }}
-    {{/* {{range $index, $element := .}} */}}
-    {{range $key, $val := .}}
-    <li>{{$key}} - {{$val}}</li>
-    {{end}}
+      <li>{{.Name}} - {{.Motto}}</li>
     </ul>
   </body>
 </html>
