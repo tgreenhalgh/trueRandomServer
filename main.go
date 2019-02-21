@@ -16,7 +16,14 @@ func init() {
 
 func main() {
 
-	sages := []string{"Ghandi", "MLK", "Buddha", "Jesus", "Muhammad"}
+	// sages := []string{"Ghandi", "MLK", "Buddha", "Jesus", "Muhammad"}
+	sages := map[string]string{
+		"India":    "Gandhi",
+		"America":  "MLK",
+		"Meditate": "Buddha",
+		"Love":     "Jesus",
+		"Prophet":  "Muhammad",
+	}
 
 	nf, err := os.Create("index.html")
 	if err != nil {
