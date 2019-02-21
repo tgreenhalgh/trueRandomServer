@@ -6,19 +6,22 @@ import (
 	"text/template"
 )
 
-func main() {
-	tpl, err := template.ParseFiles("tpl.gohtml")
-	if err != nil {
-		log.Fatalln(err)
-	}
+// pacage level scope
+var tpl *template.Template
 
+func init() {
+	// Must does error checking, ParseGlob gets all the matching files
+	tpl = template.Must(template.ParseGlob("templates/*"))
+}
+
+func main() {
 	nf, err := os.Create("index.html")
 	if err != nil {
 		log.Println("error creating the file", err)
 	}
 	defer nf.Close()
 
-	err = tpl.Execute(nf, nil)
+	err = tpl.ExecuteTemplate(nf, "tpl.gohtml", nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
