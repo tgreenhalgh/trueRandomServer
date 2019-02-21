@@ -7,7 +7,13 @@
     <title>Hello</title>
   </head>
   <body>
-  {{$name := .}}
-    <h1>Hello {{$name}}!</h1>
+    <ul>
+      {{range .}}
+      <li>{{.}}</li>
+      {{ end }}
+    {{range $index, $element := .}}
+    <li>{{$index}} - {{$element}}</li>
+    {{end}}
+    </ul>
   </body>
 </html>

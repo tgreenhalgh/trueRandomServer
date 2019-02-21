@@ -15,13 +15,16 @@ func init() {
 }
 
 func main() {
+
+	sages := []string{"Ghandi", "MLK", "Buddha", "Jesus", "Muhammad"}
+
 	nf, err := os.Create("index.html")
 	if err != nil {
 		log.Println("error creating the file", err)
 	}
 	defer nf.Close()
 
-	err = tpl.ExecuteTemplate(nf, "tpl.gohtml", "Thomas")
+	err = tpl.ExecuteTemplate(nf, "tpl.gohtml", sages)
 	if err != nil {
 		log.Fatalln(err)
 	}
